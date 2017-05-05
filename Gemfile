@@ -39,6 +39,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.14.0'
   gem 'selenium-webdriver'
+  gem 'rename'
 end
 
 group :development do
