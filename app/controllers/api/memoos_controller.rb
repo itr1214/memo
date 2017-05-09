@@ -3,6 +3,7 @@ class Api::MemoosController < ApplicationController
 	# skip_before_filter :verify_authenticity_token, only: :create # どうやらこの記述が必要
 	 def create
 	 	# binding
+	 	
 
     memo = Memoo.new(create_params)
 
