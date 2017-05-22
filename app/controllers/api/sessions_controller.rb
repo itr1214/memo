@@ -1,15 +1,17 @@
 class Api::SessionsController < ApplicationController
 	skip_before_action :authenticate_user_from_token!
+	# before_action :authenticate_user!
 
     # POST /v1/login
     def create
       @user = User.find_for_database_authentication(email: params[:email])
-      # binding.pry
+    # binding.pry  
       return invalid_email unless @user
-
+	
       if @user.valid_password?(params[:password])
         sign_in :user, @user
-        render json: @user, serializer: SessionSerializer, root: nil
+        render json: @user, serializer: Api::SessionSerializer, root: nil
+        
       else
         invalid_password
       end

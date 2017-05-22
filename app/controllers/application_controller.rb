@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
   def authenticate_with_auth_token auth_token
     unless auth_token.include?(':')
       authenticate_error
